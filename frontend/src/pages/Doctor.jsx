@@ -14,7 +14,7 @@ const [selectedSpecialty, setSelectedSpecialty] = useState("");
   useEffect(() => {
     let mounted = true;
     setLoading(true);
-    fetch("http://localhost:3000/doctors")
+    fetch("https://bookingsystembackend.vercel.app/doctors")
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -100,7 +100,7 @@ const [selectedSpecialty, setSelectedSpecialty] = useState("");
         doctor: selectedDoctor,
       };
 
-      const res = await fetch("http://localhost:3000/booking/book", {
+      const res = await fetch("https://bookingsystembackend.vercel.app/booking/book", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
