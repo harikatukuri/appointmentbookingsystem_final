@@ -1,7 +1,7 @@
 const route = require('express').Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
-const { verifyToken } = require('../middleware');
+const { verifyToken } = require('../verifytoken');
 
 route.get('/', (req, res) => {
     res.send('Hello World! jwt');
