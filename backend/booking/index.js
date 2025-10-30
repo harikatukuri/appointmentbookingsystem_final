@@ -1,6 +1,6 @@
 const route2 = require('express').Router();
 const Booking = require('../models/Booking');
-const { verifyToken } = require('../middleware');
+const { verifyToken } = require('../verifytoken');
 
 // GET all bookings (admin or for debug) - consider restricting in production
 route2.get('/', async (req, res) => {
