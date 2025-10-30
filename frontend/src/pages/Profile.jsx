@@ -26,7 +26,7 @@ export default function Profile() {
     const fetchBookings = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:3000/auth/profile/bookings", {
+        const res = await fetch("https://bookingsystembackend.vercel.app/auth/profile/bookings", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -114,7 +114,7 @@ export default function Profile() {
                   const token = localStorage.getItem("token");
                   if (!window.confirm("Are you sure you want to cancel this booking?")) return;
                   try {
-                    const res = await fetch(`http://localhost:3000/booking/${booking._id}`, {
+                    const res = await fetch(`https://bookingsystembackend.vercel.app/booking/${booking._id}`, {
                       method: "DELETE",
                       headers: { Authorization: `Bearer ${token}` },
                     });
@@ -127,7 +127,7 @@ export default function Profile() {
                 onEdit={async (updated) => {
                   const token = localStorage.getItem("token");
                   try {
-                    const res = await fetch(`http://localhost:3000/booking/${booking._id}`, {
+                    const res = await fetch(`https://bookingsystembackend.vercel.app/booking/${booking._id}`, {
                       method: "PUT",
                       headers: {
                         "Content-Type": "application/json",
