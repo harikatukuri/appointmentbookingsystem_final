@@ -30,3 +30,4 @@ app.get("/doctors", async (req, res) => {
   }
 });
 
+module.exports = app
