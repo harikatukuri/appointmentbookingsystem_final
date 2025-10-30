@@ -12,7 +12,7 @@ app.use(express.json());
 const jwt = require("./jwt");
 const booking = require("./booking");
 
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
   //get the doctors data
   res.send("Main Hello World!");
 });
@@ -30,6 +30,3 @@ app.get("/doctors", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("app listening on port 3000!");
-});
