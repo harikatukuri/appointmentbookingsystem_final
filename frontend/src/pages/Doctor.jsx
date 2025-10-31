@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import DoctorCard from "../components/DoctorCard";
 import { doctorsData as initialDoctors } from "../data/data.js";
-
+import { useNavigate } from 'react-router-dom';
 export default function Doctor() {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   // initialize with local data so the page works even if backend is down
   const [doctorsData, setDoctorData] = useState(initialDoctors || []);
@@ -61,7 +62,7 @@ const [selectedSpecialty, setSelectedSpecialty] = useState("");
     const token = localStorage.getItem("token");
     if (!token) {
       // redirect to login if not authenticated
-      window.location.href = "/login";
+      navigate("/login");
       return;
     }
 
@@ -86,7 +87,7 @@ const [selectedSpecialty, setSelectedSpecialty] = useState("");
     const token = localStorage.getItem("token");
     if (!token) {
       alert("You must be logged in to book an appointment.");
-      window.location.href = "/login";
+      navigate("/login");
       return;
     }
 
