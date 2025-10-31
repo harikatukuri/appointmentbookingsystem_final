@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const navigate = useNavigate();
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -33,7 +34,7 @@ export default function Register() {
         }
 
         alert("Registration successful. Please login.");
-        window.location.href = "/login";
+        navigate("/login");
       } catch (err) {
         console.error(err);
         alert(err.message || "Registration failed");
