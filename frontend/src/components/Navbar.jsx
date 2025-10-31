@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   console.log(username);
@@ -26,7 +27,7 @@ export default function Navbar() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     setUsername("");
-    window.location.href = "/";
+    navigate('/');
   };
 
   return (
