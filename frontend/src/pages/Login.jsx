@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 export default function Login() {
+  const navigate = useNavigate();
   const [username, setuserName] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,7 +31,7 @@ export default function Login() {
         localStorage.setItem("token", data.token);
         // simple feedback; you can replace with navigation
         alert("Login successful");
-        window.location.href = "/";
+        navigate('/');
       } else {
         throw new Error("No token returned from server");
       }
